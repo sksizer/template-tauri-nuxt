@@ -1,7 +1,7 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn echo(message: &str) -> String {
+    format!("Echo from Rust: {}", message)
 }
 
 #[cfg(test)]
@@ -9,9 +9,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn greet_returns_expected_message() {
-        let result = greet("World");
-        assert_eq!(result, "Hello, World! You've been greeted from Rust!");
+    fn echo_returns_expected_message() {
+        let result = echo("Hello World");
+        assert_eq!(result, "Echo from Rust: Hello World");
     }
 }
 
@@ -19,7 +19,7 @@ mod tests {
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![echo])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
