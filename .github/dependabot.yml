@@ -14,6 +14,6 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "cargo" # See documentation for possible values
-    directory: "/src-cargo" # Location of package manifests
+    directory: "/src-tauri" # Location of package manifests
     schedule:
       interval: "weekly"

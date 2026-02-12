@@ -14,7 +14,7 @@ description = "Run the Tauri development server"
 run = "pnpm tauri dev"
 
 [tasks.build]
-description = "Run the Tauri development server"
+description = "Build the Tauri application"
 run = "pnpm tauri build"
 
 [tasks.test_all]
