@@ -18,7 +18,8 @@
     "frontend:test": "cd src-nuxt && pnpm run test",
     "backend:lint": ".scripts/backend-lint",
     "backend:format:check": ".scripts/backend-format-check",
-    "backend:test": ".scripts/backend-test"
+    "backend:test": ".scripts/backend-test",
+    "template:check": ".scripts/sync-template-check"
   },
   "dependencies": {
     "husky": "^9.1.7",
