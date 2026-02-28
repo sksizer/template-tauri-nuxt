@@ -1,7 +1,0 @@
-pnpm run frontend:lint
-pnpm run frontend:typecheck
-pnpm run frontend:test
-
-pnpm run backend:lint
-pnpm run backend:format:check
-pnpm run backend:test
