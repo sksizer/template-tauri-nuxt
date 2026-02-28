@@ -156,6 +156,7 @@ pnpm run template:check
 - **Build command**: `pnpm generate` (static output)
 - **Version**: reads from root `package.json`
 
+
 ## Acknowledgements
 
 Build tooling and developer experience configuration (Lefthook, commitlint, Prettier, oxlint, EditorConfig, Makefile) were inspired by and adapted from [oxide-dock](https://github.com/fridzema/oxide-dock) by [@fridzema](https://github.com/fridzema).

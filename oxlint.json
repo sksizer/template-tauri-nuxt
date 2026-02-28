@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "no-console": "warn",
+    "no-debugger": "warn"
+  },
+  "ignorePatterns": ["src-nuxt/.nuxt/", "src-tauri/target/", "node_modules/"]
+}
