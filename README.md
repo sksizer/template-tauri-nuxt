@@ -56,21 +56,21 @@ make setup        # or: pnpm run project:init && pnpm lefthook install
 ### Makefile (recommended)
 
 | Target | Description |
-|--------|-------------|
-| `make dev` | Run Tauri dev server |
-| `make build` | Production build |
-| `make build-debug` | Build with debug symbols |
-| `make lint` | Run all linters (frontend + Rust) |
-| `make lint-fix` | Auto-fix lint issues |
-| `make format` | Format all code |
-| `make format-check` | Check formatting without changes |
-| `make test` | Run all tests (frontend + Rust) |
-| `make ci` | Full CI pipeline (lint, format-check, test, build) |
-| `make setup` | Install deps and git hooks |
-| `make storybook` | Launch Storybook dev server |
-| `make storybook-build` | Build Storybook static site |
-| `make clean` | Remove build artifacts |
-| `make help` | Show all available targets |
+| --- | --- |
+| make dev | Run Tauri dev server |
+| make build | Production build |
+| make build-debug | Build with debug symbols |
+| make lint | Run all linters (frontend + Rust) |
+| make lint-fix | Auto-fix lint issues |
+| make format | Format all code |
+| make format-check | Check formatting without changes |
+| make test | Run all tests (frontend + Rust) |
+| make ci | Full CI pipeline (lint, format-check, test, build) |
+| make setup | Install deps and git hooks |
+| make storybook | Launch Storybook dev server |
+| make storybook-build | Build Storybook static site |
+| make clean | Remove build artifacts |
+| make help | Show all available targets |
 
 ### pnpm / cargo
 
@@ -96,6 +96,7 @@ Run `mise run dev`, `mise run build`, `mise run test_all`, etc.
 ### Lefthook (Git Hooks)
 
 **pre-commit** (parallel):
+
 - `eslint` — lint JS/TS/Vue
 - `oxlint` — fast lint pass
 - `prettier` — format check
@@ -122,38 +123,38 @@ Consistent formatting across editors: 2-space indent (4 for Rust, tabs for Makef
 Extracted reusable Vue components in `src-nuxt/app/components/`:
 
 | Component | Description |
-|-----------|-------------|
-| `AppHeader` | Application header with branding |
-| `AppFooter` | Footer with links |
-| `GradientButton` | Styled button with gradient effect |
-| `ResultBanner` | Display area for operation results |
-| `EchoCard` | Card for echo/ping functionality |
+| --- | --- |
+| AppHeader | Application header with branding |
+| AppFooter | Footer with links |
+| GradientButton | Styled button with gradient effect |
+| ResultBanner | Display area for operation results |
+| EchoCard | Card for echo/ping functionality |
 
 Each component has a co-located `.stories.ts` file for Storybook.
 
 ## Linting & Formatting
 
 | Layer | Frontend | Backend |
-|-------|----------|---------|
-| Fast lint | [oxlint](https://oxc.rs/) | — |
-| Full lint | [ESLint](https://eslint.org/) + `@nuxt/eslint` | [cargo clippy](https://doc.rust-lang.org/clippy/) (`-D warnings`) |
-| Format | [Prettier](https://prettier.io/) (no semi, single quotes, 100 width) | `cargo fmt` |
+| --- | --- | --- |
+| Fast lint | oxlint | — |
+| Full lint | ESLint + @nuxt/eslint | cargo clippy (-D warnings) |
+| Format | Prettier (no semi, single quotes, 100 width) | cargo fmt |
 
 ## Testing
 
 | Layer | Tool | Command |
-|-------|------|---------|
-| Frontend | [Vitest](https://vitest.dev/) + `@nuxt/test-utils` | `make test-unit` |
-| Backend | `cargo test` | `make rust-test` |
-| All | — | `make test` |
+| --- | --- | --- |
+| Frontend | Vitest + @nuxt/test-utils | make test-unit |
+| Backend | cargo test | make rust-test |
+| All | — | make test |
 
 ## CI/CD
 
 | Workflow | Trigger | What it does |
-|----------|---------|--------------|
-| [`ci.yml`](.github/workflows/ci.yml) | Push/PR to `main` | Frontend lint + typecheck + test; Rust format + clippy + test |
-| [`build-check.yml`](.github/workflows/build-check.yml) | Push/PR to `main` | Full Tauri build verification |
-| [`release.yml`](.github/workflows/release.yml) | Tag `v*` | Multi-platform build (macOS aarch64/x86_64, Ubuntu, Windows) via `tauri-apps/tauri-action`; creates draft GitHub release |
+| --- | --- | --- |
+| ci.yml | Push/PR to main | Frontend lint + typecheck + test; Rust format + clippy + test |
+| build-check.yml | Push/PR to main | Full Tauri build verification |
+| release.yml | Tag v* | Multi-platform build (macOS aarch64/x86_64, Ubuntu, Windows) via tauri-apps/tauri-action; creates draft GitHub release |
 
 **Dependabot**: Weekly updates for npm (root + `src-nuxt`) and Cargo (`src-tauri`).
 
@@ -182,11 +183,10 @@ pnpm run template:check
 
 ## Tauri Configuration
 
-- **`withGlobalTauri`**: enabled — exposes Tauri API to frontend
+- `withGlobalTauri`: enabled — exposes Tauri API to frontend
 - **Default window**: 800x600
 - **Build command**: `pnpm generate` (static output)
 - **Version**: reads from root `package.json`
-
 
 ## Acknowledgements
 
