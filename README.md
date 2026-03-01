@@ -177,7 +177,7 @@ pnpm run template:check
 
 - **SSR disabled** — SPA mode for desktop
 - **Dev server**: `localhost:1420`
-- **Modules**: `@nuxt/ui`, `@nuxt/content`, `@nuxt/fonts`, `@nuxt/icon`, `@nuxt/scripts`, `@nuxt/eslint`, `@nuxt/test-utils`
+- **Modules**: `@nuxt/ui`, `@nuxt/fonts`, `@nuxt/icon`, `@nuxt/scripts`, `@nuxt/eslint`, `@nuxt/test-utils`
 - **Styling**: Tailwind CSS v4 (via `@nuxt/ui`)
 
 ## Tauri Configuration
