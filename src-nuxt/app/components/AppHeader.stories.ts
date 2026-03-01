@@ -31,6 +31,7 @@ export const CustomText: Story = {
 export const LongText: Story = {
   args: {
     title: 'This Is a Very Long Title That Might Wrap on Smaller Screens',
-    subtitle: 'And this is an equally long subtitle to test how the layout handles extended text content gracefully',
+    subtitle:
+      'And this is an equally long subtitle to test how the layout handles extended text content gracefully',
   },
 }

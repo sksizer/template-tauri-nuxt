@@ -3,13 +3,16 @@ import { ref } from 'vue'
 import GradientButton from './GradientButton.vue'
 import ResultBanner from './ResultBanner.vue'
 
-const props = withDefaults(defineProps<{
-  title?: string
-  invoker?: (message: string) => Promise<string>
-}>(), {
-  title: 'Echo Command',
-  invoker: (message: string) => Promise.resolve(`Echo: ${message}`),
-})
+const props = withDefaults(
+  defineProps<{
+    title?: string
+    invoker?: (message: string) => Promise<string>
+  }>(),
+  {
+    title: 'Echo Command',
+    invoker: (message: string) => Promise.resolve(`Echo: ${message}`),
+  },
+)
 
 const message = ref('')
 const echoResult = ref('')
@@ -37,7 +40,7 @@ async function callEcho() {
         type="text"
         placeholder="Enter a message to echo"
         class="input-field"
-      >
+      />
       <GradientButton label="Echo" type="submit" />
     </form>
     <ResultBanner v-if="echoResult" :message="echoResult" />

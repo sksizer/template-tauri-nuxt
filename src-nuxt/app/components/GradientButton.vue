@@ -1,10 +1,13 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-  label: string
-  type?: 'submit' | 'button'
-}>(), {
-  type: 'button',
-})
+withDefaults(
+  defineProps<{
+    label: string
+    type?: 'submit' | 'button'
+  }>(),
+  {
+    type: 'button',
+  },
+)
 
 defineEmits<{
   click: [event: MouseEvent]
