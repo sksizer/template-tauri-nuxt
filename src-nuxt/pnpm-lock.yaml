@@ -67,7 +67,7 @@ importers:
         specifier: ^8.6.14
         version: 8.6.14(storybook@8.6.17(prettier@3.8.1))
       '@storybook/test':
-        specifier: ^8.6.14
+        specifier: ^8.6.15
         version: 8.6.15(storybook@8.6.17(prettier@3.8.1))
       '@storybook/vue3':
         specifier: ^8.6.17
