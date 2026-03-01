@@ -188,3 +188,10 @@ async function callEcho() {
   margin: 0;
 }
 </style>
+
+<style>
+html,
+body {
+  overscroll-behavior: none;
+}
+</style>
