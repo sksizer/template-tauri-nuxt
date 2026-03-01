@@ -10,8 +10,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest run",
-    "lint": "eslint .",
-    "typecheck": "nuxi typecheck"
+    "lint": "eslint . && oxlint .",
+    "typecheck": "nuxi typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@nuxt/content": "^3.11.2",
@@ -43,6 +45,9 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^10.1.5",
+    "oxlint": "^0.16.6",
+    "prettier": "^3.5.3",
     "vitest": "^4.0.18"
   }
 }
