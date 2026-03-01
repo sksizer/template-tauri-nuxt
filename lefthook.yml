@@ -26,3 +26,6 @@ pre-commit:
       root: src-nuxt/
       glob: '*.{js,ts,vue,css,json,md,yml,yaml,mjs}'
       run: pnpm prettier --check {staged_files}
+    typecheck:
+      root: src-nuxt/
+      run: pnpm typecheck
