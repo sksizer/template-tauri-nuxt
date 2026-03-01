@@ -8,6 +8,7 @@ const props = withDefaults(defineProps<{
   invoker?: (message: string) => Promise<string>
 }>(), {
   title: 'Echo Command',
+  invoker: (message: string) => Promise.resolve(`Echo: ${message}`),
 })
 
 const message = ref('')
