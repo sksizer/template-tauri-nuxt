@@ -16,22 +16,22 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@nuxt/content": "^3.11.2",
-    "@nuxt/eslint": "^1.15.1",
+    "@nuxt/content": "^3.12.0",
+    "@nuxt/eslint": "^1.15.2",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/icon": "^2.2.1",
     "@nuxt/scripts": "^0.13.2",
     "@nuxt/test-utils": "^4.0.0",
-    "@nuxt/ui": "^4.4.0",
+    "@nuxt/ui": "^4.5.0",
     "@tauri-apps/api": "^2.10.1",
     "@tauri-apps/plugin-opener": "^2.5.3",
-    "@unhead/vue": "^2.1.4",
+    "@unhead/vue": "^2.1.9",
     "better-sqlite3": "^12.6.2",
     "eslint": "^9.39.2",
     "nuxt": "^4.3.1",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
-    "vue": "^3.5.28",
+    "vue": "^3.5.29",
     "vue-router": "^4.6.4"
   },
   "packageManager": "pnpm@10.28.2",
@@ -45,9 +45,9 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-prettier": "^10.1.5",
-    "oxlint": "^0.16.6",
-    "prettier": "^3.5.3",
+    "eslint-config-prettier": "^10.1.8",
+    "oxlint": "^1.50.0",
+    "prettier": "^3.8.1",
     "vitest": "^4.0.18"
   }
 }

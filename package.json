@@ -24,14 +24,19 @@
     "format:check": "cd src-nuxt && pnpm run format:check"
   },
   "dependencies": {
-    "pnpm": "^10.29.3"
+    "pnpm": "^10.30.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "lefthook"
+    ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
     "@release-it/bumper": "^7.0.5",
     "@tauri-apps/cli": "^2.10.0",
-    "lefthook": "^1.11.5",
+    "lefthook": "^2.1.1",
     "release-it": "^19.2.4"
   }
 }
