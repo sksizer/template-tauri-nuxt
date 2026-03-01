@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     host: 'localhost',
   },
   modules: [
-    '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',

@@ -7,17 +7,22 @@ pre-commit:
   parallel: true
   commands:
     eslint:
+      root: src-nuxt/
       glob: '*.{js,ts,vue,mjs}'
-      run: cd src-nuxt && pnpm eslint {staged_files}
+      run: pnpm eslint {staged_files}
     clippy:
+      root: src-tauri/
       glob: '*.rs'
-      run: cd src-tauri && cargo clippy -- -D warnings
+      run: cargo clippy -- -D warnings
     rustfmt:
+      root: src-tauri/
       glob: '*.rs'
-      run: cd src-tauri && cargo fmt -- --check
+      run: cargo fmt -- --check
     oxlint:
+      root: src-nuxt/
       glob: '*.{js,ts,vue,mjs}'
-      run: cd src-nuxt && pnpm oxlint {staged_files}
+      run: pnpm oxlint {staged_files}
     prettier:
+      root: src-nuxt/
       glob: '*.{js,ts,vue,css,json,md,yml,yaml,mjs}'
-      run: cd src-nuxt && pnpm prettier --check {staged_files}
+      run: pnpm prettier --check {staged_files}
