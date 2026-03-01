@@ -33,7 +33,7 @@ async function callEcho() {
               type="text"
               placeholder="Enter a message to echo"
               class="input-field"
-            />
+            >
             <button type="submit" class="echo-button">Echo</button>
           </form>
           <div v-if="echoResult" class="result">
