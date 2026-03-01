@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
 
 .PHONY: help dev build build-debug lint lint-fix format format-check \
-        test test-unit rust-lint rust-format rust-test ci setup clean
+        test test-unit rust-lint rust-format rust-test ci setup clean \
+        storybook storybook-build
 
 ## Development ---------------------------------------------------------------
 
@@ -13,6 +14,7 @@ help: ## Show this help message
 	@echo "  dev            Run tauri dev server"
 	@echo "  build          Build for production"
 	@echo "  build-debug    Build with debug symbols"
+	@echo "  storybook      Launch Storybook dev server"
 	@echo ""
 	@echo "Linting & Formatting:"
 	@echo "  lint           Run all linters (frontend + Rust)"
@@ -31,6 +33,7 @@ help: ## Show this help message
 	@echo ""
 	@echo "CI & Setup:"
 	@echo "  ci             Run full CI pipeline (lint, format-check, test, build)"
+	@echo "  storybook-build Build Storybook static site"
 	@echo "  setup          Install dependencies and git hooks"
 	@echo "  clean          Remove build artifacts"
 	@echo ""
@@ -43,6 +46,9 @@ build: ## Build for production
 
 build-debug: ## Build with debug symbols
 	pnpm tauri build --debug
+
+storybook: ## Launch Storybook dev server
+	pnpm run storybook
 
 ## Linting & Formatting ------------------------------------------------------
 
@@ -82,6 +88,9 @@ rust-test: ## Run cargo test
 	cd src-tauri && cargo test
 
 ## CI & Setup ----------------------------------------------------------------
+
+storybook-build: ## Build Storybook static site
+	pnpm run storybook:build
 
 ci: lint format-check test build ## Run full CI pipeline
 

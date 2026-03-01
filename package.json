@@ -21,7 +21,9 @@
     "backend:test": ".scripts/backend-test",
     "template:check": ".scripts/sync-template-check",
     "format": "cd src-nuxt && pnpm run format",
-    "format:check": "cd src-nuxt && pnpm run format:check"
+    "format:check": "cd src-nuxt && pnpm run format:check",
+    "storybook": "cd src-nuxt && pnpm run storybook",
+    "storybook:build": "cd src-nuxt && pnpm run storybook:build"
   },
   "dependencies": {
     "pnpm": "^10.30.3"

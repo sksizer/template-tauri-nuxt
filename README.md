@@ -8,6 +8,7 @@ A starting point for desktop applications using [Tauri](https://tauri.app/), [Nu
 - Pre-configured CI/CD (lint, build, release)
 - Comprehensive linting and formatting (ESLint, oxlint, Prettier, Clippy, rustfmt)
 - Git hooks via Lefthook with conventional commits
+- Storybook for isolated component development
 - Makefile and mise for ergonomic development commands
 - Version management with release-it (syncs `package.json` → `Cargo.toml`)
 - Template drift detection against upstream
@@ -21,7 +22,9 @@ template_tauri_nuxt/
 ├── .scripts/          # Helper scripts for CI and tooling
 ├── docs/              # Project documentation
 ├── src-nuxt/          # Frontend Nuxt.js application
+│   ├── .storybook/    # Storybook configuration
 │   ├── app/           # Vue components and assets
+│   │   └── components/  # Extracted components + stories
 │   ├── server/        # Nuxt server code
 │   ├── tests/         # Frontend tests (Vitest)
 │   └── public/        # Static assets
@@ -64,7 +67,10 @@ make setup        # or: pnpm run project:init && pnpm lefthook install
 | `make test` | Run all tests (frontend + Rust) |
 | `make ci` | Full CI pipeline (lint, format-check, test, build) |
 | `make setup` | Install deps and git hooks |
+| `make storybook` | Launch Storybook dev server |
+| `make storybook-build` | Build Storybook static site |
 | `make clean` | Remove build artifacts |
+| `make help` | Show all available targets |
 
 ### pnpm / cargo
 
@@ -74,6 +80,8 @@ pnpm tauri build    # or: cargo tauri build
 ```
 
 ## Developer Tooling
+
+JS/TS tooling configs (Prettier, oxlint, `eslint-config-prettier`) live in `src-nuxt/` alongside the code they check. The root `package.json` orchestrates cross-project scripts.
 
 ### mise
 
@@ -96,9 +104,32 @@ Run `mise run dev`, `mise run build`, `mise run test_all`, etc.
 
 **commit-msg**: `commitlint` enforces [Conventional Commits](https://www.conventionalcommits.org/) via `@commitlint/config-conventional`.
 
+### Storybook
+
+Standalone [Storybook](https://storybook.js.org/) (`@storybook/vue3-vite`) for isolated component development. Stories are co-located with components in `src-nuxt/app/components/`.
+
+```bash
+make storybook          # or: pnpm storybook
+make storybook-build    # build static Storybook site
+```
+
 ### EditorConfig
 
 Consistent formatting across editors: 2-space indent (4 for Rust, tabs for Makefile), LF line endings, UTF-8.
+
+## Components
+
+Extracted reusable Vue components in `src-nuxt/app/components/`:
+
+| Component | Description |
+|-----------|-------------|
+| `AppHeader` | Application header with branding |
+| `AppFooter` | Footer with links |
+| `GradientButton` | Styled button with gradient effect |
+| `ResultBanner` | Display area for operation results |
+| `EchoCard` | Card for echo/ping functionality |
+
+Each component has a co-located `.stories.ts` file for Storybook.
 
 ## Linting & Formatting
 
@@ -155,6 +186,7 @@ pnpm run template:check
 - **Default window**: 800x600
 - **Build command**: `pnpm generate` (static output)
 - **Version**: reads from root `package.json`
+
 
 ## Acknowledgements
 
