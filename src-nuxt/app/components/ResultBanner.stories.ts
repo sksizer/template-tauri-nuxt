@@ -21,12 +21,14 @@ export const Default: Story = {
 
 export const LongMessage: Story = {
   args: {
-    message: 'This is a much longer message to test how the result banner handles text that extends beyond the typical length. It should wrap gracefully within the container.',
+    message:
+      'This is a much longer message to test how the result banner handles text that extends beyond the typical length. It should wrap gracefully within the container.',
   },
 }
 
 export const ErrorMessage: Story = {
   args: {
-    message: 'Error: Failed to connect to the Tauri backend. Please ensure the application is running correctly.',
+    message:
+      'Error: Failed to connect to the Tauri backend. Please ensure the application is running correctly.',
   },
 }

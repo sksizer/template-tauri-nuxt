@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help dev build build-debug lint lint-fix format format-check \
+.PHONY: help dev build build-debug lint lint-fix format format-check typecheck \
         test test-unit rust-lint rust-format rust-test ci setup clean \
         storybook storybook-build
 
@@ -21,6 +21,7 @@ help: ## Show this help message
 	@echo "  lint-fix       Auto-fix lint issues"
 	@echo "  format         Format all code"
 	@echo "  format-check   Check formatting without changes"
+	@echo "  typecheck      Run frontend type checking"
 	@echo ""
 	@echo "Testing:"
 	@echo "  test           Run all tests (frontend + Rust)"
@@ -32,7 +33,7 @@ help: ## Show this help message
 	@echo "  rust-test      Run cargo test"
 	@echo ""
 	@echo "CI & Setup:"
-	@echo "  ci             Run full CI pipeline (lint, format-check, test, build)"
+	@echo "  ci             Run full CI pipeline (lint, format-check, typecheck, test, build, storybook-build)"
 	@echo "  storybook-build Build Storybook static site"
 	@echo "  setup          Install dependencies and git hooks"
 	@echo "  clean          Remove build artifacts"
@@ -67,6 +68,9 @@ format-check: ## Check formatting without changes
 	pnpm run format:check
 	cd src-tauri && cargo fmt -- --check
 
+typecheck: ## Run frontend type checking
+	pnpm run frontend:typecheck
+
 ## Testing -------------------------------------------------------------------
 
 test: ## Run all tests (frontend + Rust)
@@ -92,7 +96,7 @@ rust-test: ## Run cargo test
 storybook-build: ## Build Storybook static site
 	pnpm run storybook:build
 
-ci: lint format-check test build ## Run full CI pipeline
+ci: lint format-check typecheck test build storybook-build ## Run full CI pipeline
 
 setup: ## Install dependencies and git hooks
 	pnpm run project:init

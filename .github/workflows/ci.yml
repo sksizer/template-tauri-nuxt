@@ -23,12 +23,18 @@ jobs:
         run: pnpm frontend:lint
         # run: cd src-nuxt && pnpm run lint
 
+      - name: Format check
+        run: pnpm format:check
+
       - name: Type check
         run: pnpm frontend:typecheck
         # run: cd src-nuxt && pnpm run typecheck
 
       - name: Test
         run: pnpm frontend:test
+
+      - name: Storybook build
+        run: pnpm storybook:build
 
   rust: 
     runs-on: ubuntu-22.04 # Use this bc of tauri project recommendations wrt to dependencies
