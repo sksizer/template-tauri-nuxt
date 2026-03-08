@@ -34,7 +34,7 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.2",
+    "@commitlint/cli": "^20.4.3",
     "@commitlint/config-conventional": "^20.4.2",
     "@release-it/bumper": "^7.0.5",
     "@tauri-apps/cli": "^2.10.0",
