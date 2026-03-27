@@ -9,7 +9,7 @@ A starting point for desktop applications using [Tauri](https://tauri.app/), [Nu
 - Comprehensive linting and formatting (ESLint, oxlint, Prettier, Clippy, rustfmt)
 - Git hooks via Lefthook with conventional commits
 - Storybook for isolated component development
-- Makefile and mise for ergonomic development commands
+- Makefile or justfile for ergonomic development commands (keep whichever you prefer)
 - Version management with release-it (syncs `package.json` → `Cargo.toml`)
 - Template drift detection against upstream
 
@@ -48,29 +48,33 @@ template_tauri_nuxt/
 mise install
 
 # Then install project dependencies:
-make setup        # or: pnpm run project:init && pnpm lefthook install
+make setup        # or: just setup / pnpm run project:init && pnpm lefthook install
 ```
 
 ## Development Commands
 
-### Makefile (recommended)
+### Makefile / justfile
+
+This template ships with both a `Makefile` and a `justfile` — they expose identical targets. Pick whichever runner you prefer and delete the other:
+
+- **make** — available everywhere, no extra install needed
+- **[just](https://github.com/casey/just)** — installable via `cargo install just` or `mise use just`
 
 | Target | Description |
 | --- | --- |
-| make dev | Run Tauri dev server |
-| make build | Production build |
-| make build-debug | Build with debug symbols |
-| make lint | Run all linters (frontend + Rust) |
-| make lint-fix | Auto-fix lint issues |
-| make format | Format all code |
-| make format-check | Check formatting without changes |
-| make test | Run all tests (frontend + Rust) |
-| make ci | Full CI pipeline (lint, format-check, test, build) |
-| make setup | Install deps and git hooks |
-| make storybook | Launch Storybook dev server |
-| make storybook-build | Build Storybook static site |
-| make clean | Remove build artifacts |
-| make help | Show all available targets |
+| `dev` | Run Tauri dev server |
+| `build` | Production build |
+| `build-debug` | Build with debug symbols |
+| `lint` | Run all linters (frontend + Rust) |
+| `lint-fix` | Auto-fix lint issues |
+| `format` | Format all code |
+| `format-check` | Check formatting without changes |
+| `test` | Run all tests (frontend + Rust) |
+| `ci` | Full CI pipeline (lint, format-check, test, build) |
+| `setup` | Install deps and git hooks |
+| `storybook` | Launch Storybook dev server |
+| `storybook-build` | Build Storybook static site |
+| `clean` | Remove build artifacts |
 
 ### pnpm / cargo
 
