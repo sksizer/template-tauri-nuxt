@@ -2,7 +2,7 @@
 
 .PHONY: help dev build build-debug lint lint-fix format format-check typecheck \
         test test-unit rust-lint rust-format rust-test ci setup clean \
-        storybook storybook-build
+        storybook storybook-build ports
 
 ## Development ---------------------------------------------------------------
 
@@ -11,10 +11,11 @@ help: ## Show this help message
 	@echo "Usage: make <target>"
 	@echo ""
 	@echo "Development:"
-	@echo "  dev            Run tauri dev server"
+	@echo "  dev            Run tauri dev server (auto-assigned port)"
 	@echo "  build          Build for production"
 	@echo "  build-debug    Build with debug symbols"
-	@echo "  storybook      Launch Storybook dev server"
+	@echo "  storybook      Launch Storybook dev server (auto-assigned port)"
+	@echo "  ports          Show auto-assigned port block for this worktree"
 	@echo ""
 	@echo "Linting & Formatting:"
 	@echo "  lint           Run all linters (frontend + Rust)"
@@ -50,6 +51,9 @@ build-debug: ## Build with debug symbols
 
 storybook: ## Launch Storybook dev server
 	pnpm run storybook
+
+ports: ## Show auto-assigned port block for this worktree
+	@scripts/dev-port.sh --all
 
 ## Linting & Formatting ------------------------------------------------------
 

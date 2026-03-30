@@ -9,6 +9,7 @@ A starting point for desktop applications using [Tauri](https://tauri.app/), [Nu
 - Comprehensive linting and formatting (ESLint, oxlint, Prettier, Clippy, rustfmt)
 - Git hooks via Lefthook with conventional commits
 - Storybook for isolated component development
+- Auto-port assignment for parallel worktree development
 - Makefile or justfile for ergonomic development commands (keep whichever you prefer)
 - Version management with release-it (syncs `package.json` → `Cargo.toml`)
 - Template drift detection against upstream
@@ -20,6 +21,7 @@ template_tauri_nuxt/
 ├── .github/           # CI/CD workflows and Dependabot config
 │   └── workflows/     # ci, build-check, release
 ├── .scripts/          # Helper scripts for CI and tooling
+├── scripts/           # Dev tooling (auto-port, tauri wrapper)
 ├── docs/              # Project documentation
 ├── src-nuxt/          # Frontend Nuxt.js application
 │   ├── .storybook/    # Storybook configuration
@@ -62,9 +64,11 @@ This template ships with both a `Makefile` and a `justfile` — they expose iden
 
 | Target | Description |
 | --- | --- |
-| `dev` | Run Tauri dev server |
+| `dev` | Run Tauri dev server (auto-assigned port) |
 | `build` | Production build |
 | `build-debug` | Build with debug symbols |
+| `storybook` | Launch Storybook dev server (auto-assigned port) |
+| `ports` | Show auto-assigned port block for this worktree |
 | `lint` | Run all linters (frontend + Rust) |
 | `lint-fix` | Auto-fix lint issues |
 | `format` | Format all code |
@@ -72,7 +76,6 @@ This template ships with both a `Makefile` and a `justfile` — they expose iden
 | `test` | Run all tests (frontend + Rust) |
 | `ci` | Full CI pipeline (lint, format-check, test, build) |
 | `setup` | Install deps and git hooks |
-| `storybook` | Launch Storybook dev server |
 | `storybook-build` | Build Storybook static site |
 | `clean` | Remove build artifacts |
 
@@ -116,6 +119,29 @@ Standalone [Storybook](https://storybook.js.org/) (`@storybook/vue3-vite`) for i
 ```bash
 make storybook          # or: pnpm storybook
 make storybook-build    # build static Storybook site
+```
+
+### Auto-Port System
+
+Each worktree (or checkout directory) gets a deterministic block of 4 ports derived from the absolute path of the project. This allows multiple worktrees of the same project to run simultaneously without port conflicts.
+
+| Service | Env Variable | Offset |
+| --- | --- | --- |
+| Nuxt dev server | `TAURI_DEV_PORT` | base + 0 |
+| Storybook | `STORYBOOK_PORT` | base + 1 |
+| MCP server | `MCP_PORT` | base + 2 |
+| HTTP server | `HTTP_PORT` | base + 3 |
+
+**How it works**: `scripts/dev-port.sh` hashes the current working directory to pick a port block in the 3000–9996 range. If those ports are busy it scans forward for a free block. The `scripts/tauri-wrapper.mjs` wrapper injects the correct `devUrl` into Tauri's config at launch.
+
+With **mise**, port env vars are set automatically when you enter the directory (see `mise.toml [env]`). Without mise, the wrapper script handles port assignment transparently.
+
+```bash
+# View your assigned ports
+make ports            # or: just ports / scripts/dev-port.sh --all
+
+# Override manually (all 4 ports shift together)
+TAURI_DEV_PORT=5000 make dev    # → Nuxt:5000, Storybook:5001, MCP:5002, HTTP:5003
 ```
 
 ### EditorConfig
@@ -181,7 +207,7 @@ pnpm run template:check
 ## Nuxt Configuration
 
 - **SSR disabled** — SPA mode for desktop
-- **Dev server**: `localhost:1420`
+- **Dev server**: `localhost:<auto-port>` (see [Auto-Port System](#auto-port-system))
 - **Modules**: `@nuxt/ui`, `@nuxt/fonts`, `@nuxt/icon`, `@nuxt/scripts`, `@nuxt/eslint`, `@nuxt/test-utils`
 - **Styling**: Tailwind CSS v4 (via `@nuxt/ui`)
 

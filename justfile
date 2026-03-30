@@ -4,7 +4,7 @@ default:
 
 ## Development ---------------------------------------------------------------
 
-# Run tauri dev server
+# Run tauri dev server (auto-assigned port)
 dev:
     pnpm tauri dev
 
@@ -16,9 +16,13 @@ build:
 build-debug:
     pnpm tauri build --debug
 
-# Launch Storybook dev server
+# Launch Storybook dev server (auto-assigned port)
 storybook:
     pnpm run storybook
+
+# Show auto-assigned port block for this worktree
+ports:
+    @scripts/dev-port.sh --all
 
 ## Linting & Formatting ------------------------------------------------------
 
