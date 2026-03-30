@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   devServer: {
-    port: 1420,
+    port: parseInt(process.env.TAURI_DEV_PORT || '1420'),
     host: 'localhost',
   },
   modules: [

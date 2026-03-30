@@ -14,7 +14,7 @@
     "typecheck": "nuxi typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p ${STORYBOOK_PORT:-1421}",
     "storybook:build": "storybook build -o storybook-static"
   },
   "dependencies": {
@@ -50,6 +50,7 @@
     "@storybook/vue3": "^10.2.13",
     "@storybook/vue3-vite": "^10.2.13",
     "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^25.5.0",
     "@vitejs/plugin-vue": "^6.0.4",
     "eslint-config-prettier": "^10.1.8",
     "oxlint": "^1.50.0",

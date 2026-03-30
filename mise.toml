@@ -3,6 +3,12 @@ node = { version = "lts", postinstall = "npm install"}
 pnpm = "latest"
 rust = { version = "1.93.0", postinstall = "cargo install tauri-cli --version '^2.10.0' --locked" }
 
+[env]
+TAURI_DEV_PORT = "{{ exec(command='scripts/dev-port.sh --service nuxt') | trim }}"
+STORYBOOK_PORT = "{{ exec(command='scripts/dev-port.sh --service storybook') | trim }}"
+MCP_PORT = "{{ exec(command='scripts/dev-port.sh --service mcp') | trim }}"
+HTTP_PORT = "{{ exec(command='scripts/dev-port.sh --service http') | trim }}"
+
 [tasks.setup]
 description = "Setup the development environment"
 run = [
@@ -34,4 +40,8 @@ run = [
 [hooks]
 enter = [
     "echo 'Entering Tauri/Nuxt development environment'",
+    "echo \"  Nuxt (TAURI_DEV_PORT): $TAURI_DEV_PORT\"",
+    "echo \"  Storybook (STORYBOOK_PORT): $STORYBOOK_PORT\"",
+    "echo \"  MCP (MCP_PORT): $MCP_PORT\"",
+    "echo \"  HTTP (HTTP_PORT): $HTTP_PORT\"",
 ]

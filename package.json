@@ -4,7 +4,7 @@
   "version": "0.1.7",
   "type": "module",
   "scripts": {
-    "tauri": "tauri",
+    "tauri": "node scripts/tauri-wrapper.mjs",
     "clean:frontend": "cd src-nuxt && pnpm run clean",
     "clean:backend": "rm -Rf src-tauri/target && rm src-tauri/Cargo.lock",
     "clean:root": "rm -Rf node_modules",
@@ -22,7 +22,7 @@
     "template:check": ".scripts/sync-template-check",
     "format": "cd src-nuxt && pnpm run format",
     "format:check": "cd src-nuxt && pnpm run format:check",
-    "storybook": "cd src-nuxt && pnpm run storybook",
+    "storybook": "cd src-nuxt && STORYBOOK_PORT=${STORYBOOK_PORT:-1421} pnpm run storybook",
     "storybook:build": "cd src-nuxt && pnpm run storybook:build"
   },
   "dependencies": {
