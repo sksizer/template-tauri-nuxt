@@ -55,7 +55,7 @@
     "eslint-config-prettier": "^10.1.8",
     "oxlint": "^1.50.0",
     "prettier": "^3.8.1",
-    "storybook": "^10.2.13",
+    "storybook": "^10.3.3",
     "vitest": "^4.0.18"
   }
 }
