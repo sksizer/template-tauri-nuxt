@@ -2,6 +2,16 @@
 default:
     @just --list
 
+## Initialization ------------------------------------------------------------
+
+# Run project initialization script
+initialize:
+    scripts/initialize.sh
+
+# Run project rename script
+rename:
+    scripts/rename.sh
+
 ## Development ---------------------------------------------------------------
 
 # Run tauri dev server (auto-assigned port)
@@ -23,6 +33,44 @@ storybook:
 # Show auto-assigned port block for this worktree
 ports:
     @scripts/dev-port.sh --all
+
+## Frontend ------------------------------------------------------------------
+
+# Run Nuxt dev server
+frontend-dev:
+    cd src-nuxt && pnpm run dev
+
+# Build Nuxt for production
+frontend-build:
+    cd src-nuxt && pnpm run build
+
+# Generate static Nuxt site
+frontend-generate:
+    cd src-nuxt && pnpm run generate
+
+# Preview Nuxt production build
+frontend-preview:
+    cd src-nuxt && pnpm run preview
+
+# Run frontend linter
+frontend-lint:
+    pnpm run frontend:lint
+
+# Run frontend tests
+frontend-test:
+    pnpm run frontend:test
+
+# Run frontend type checking
+frontend-typecheck:
+    pnpm run frontend:typecheck
+
+# Format frontend code
+frontend-format:
+    cd src-nuxt && pnpm run format
+
+# Check frontend formatting
+frontend-format-check:
+    cd src-nuxt && pnpm run format:check
 
 ## Linting & Formatting ------------------------------------------------------
 
@@ -74,6 +122,16 @@ rust-format:
 rust-test:
     cd src-tauri && cargo test
 
+# Alias for rust-lint
+backend-lint: rust-lint
+
+# Check backend formatting
+backend-format-check:
+    pnpm run backend:format:check
+
+# Alias for rust-test
+backend-test: rust-test
+
 ## CI & Setup ----------------------------------------------------------------
 
 # Build Storybook static site
@@ -91,3 +149,15 @@ setup:
 # Remove build artifacts
 clean:
     pnpm run clean
+
+# Install system dependencies (Debian/Ubuntu)
+install-deps-debian:
+    sudo apt install build-essential pkg-config libgtk-3-dev libglib2.0-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libssl-dev
+
+# Create a new release
+release:
+    pnpm run release
+
+# Check template sync status
+template-check:
+    pnpm run template:check

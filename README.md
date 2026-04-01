@@ -20,8 +20,7 @@ A starting point for desktop applications using [Tauri](https://tauri.app/), [Nu
 template_tauri_nuxt/
 ├── .github/           # CI/CD workflows and Dependabot config
 │   └── workflows/     # ci, build-check, release
-├── .scripts/          # Helper scripts for CI and tooling
-├── scripts/           # Dev tooling (auto-port, tauri wrapper)
+├── scripts/           # Helper scripts, CI tooling, and dev utilities
 ├── docs/              # Project documentation
 ├── src-nuxt/          # Frontend Nuxt.js application
 │   ├── .storybook/    # Storybook configuration
@@ -64,20 +63,49 @@ This template ships with both a `Makefile` and a `justfile` — they expose iden
 
 | Target | Description |
 | --- | --- |
+| **Initialization** | |
+| `initialize` | Run project initialization script |
+| `rename` | Run project rename script |
+| **Development** | |
 | `dev` | Run Tauri dev server (auto-assigned port) |
 | `build` | Production build |
 | `build-debug` | Build with debug symbols |
 | `storybook` | Launch Storybook dev server (auto-assigned port) |
 | `ports` | Show auto-assigned port block for this worktree |
+| **Frontend** | |
+| `frontend-dev` | Run Nuxt dev server |
+| `frontend-build` | Build Nuxt for production |
+| `frontend-generate` | Generate static Nuxt site |
+| `frontend-preview` | Preview Nuxt production build |
+| `frontend-lint` | Run frontend linter |
+| `frontend-test` | Run frontend tests |
+| `frontend-typecheck` | Run frontend type checking |
+| `frontend-format` | Format frontend code |
+| `frontend-format-check` | Check frontend formatting |
+| **Linting & Formatting** | |
 | `lint` | Run all linters (frontend + Rust) |
 | `lint-fix` | Auto-fix lint issues |
 | `format` | Format all code |
 | `format-check` | Check formatting without changes |
+| `typecheck` | Run frontend type checking |
+| **Testing** | |
 | `test` | Run all tests (frontend + Rust) |
-| `ci` | Full CI pipeline (lint, format-check, test, build) |
+| `test-unit` | Run frontend unit tests only |
+| **Rust / Backend** | |
+| `rust-lint` | Run cargo clippy |
+| `rust-format` | Run cargo fmt |
+| `rust-test` | Run cargo test |
+| `backend-lint` | Alias for rust-lint |
+| `backend-format-check` | Check backend formatting |
+| `backend-test` | Alias for rust-test |
+| **CI & Setup** | |
+| `ci` | Full CI pipeline (lint, format-check, typecheck, test, build, storybook-build) |
 | `setup` | Install deps and git hooks |
 | `storybook-build` | Build Storybook static site |
 | `clean` | Remove build artifacts |
+| `install-deps-debian` | Install system dependencies (Debian/Ubuntu) |
+| `release` | Create a new release |
+| `template-check` | Check template sync status |
 
 ### pnpm / cargo
 
@@ -174,9 +202,9 @@ Each component has a co-located `.stories.ts` file for Storybook.
 
 | Layer | Tool | Command |
 | --- | --- | --- |
-| Frontend | Vitest + @nuxt/test-utils | make test-unit |
-| Backend | cargo test | make rust-test |
-| All | — | make test |
+| Frontend | Vitest + @nuxt/test-utils | `make test-unit` / `make frontend-test` |
+| Backend | cargo test | `make rust-test` / `make backend-test` |
+| All | — | `make test` |
 
 ## CI/CD
 
@@ -217,6 +245,10 @@ pnpm run template:check
 - **Default window**: 800x600
 - **Build command**: `pnpm generate` (static output)
 - **Version**: reads from root `package.json`
+
+## Architecture
+
+See [docs/architecture.md](docs/architecture.md) for a detailed overview of the project architecture, directory layout, and design decisions.
 
 ## Acknowledgements
 
