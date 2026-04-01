@@ -5,7 +5,7 @@
 # with the values provided via environment variables.
 #
 # Usage:
-#   PROJECT_NAME=my_app BUNDLE_ID=com.example.myapp bash .scripts/rename.sh
+#   PROJECT_NAME=my_app BUNDLE_ID=com.example.myapp bash scripts/rename.sh
 #   PROJECT_NAME=my_app BUNDLE_ID=com.example.myapp make rename
 #
 # Environment variables:

@@ -36,9 +36,9 @@ TOOLING_FILES=(
   ".editorconfig"
   "oxlint.json"
   "Makefile"
-  ".scripts/backend-format-check"
-  ".scripts/backend-lint"
-  ".scripts/backend-test"
+  "scripts/backend-format-check"
+  "scripts/backend-lint"
+  "scripts/backend-test"
   "src-nuxt/nuxt.config.ts"
   "src-nuxt/eslint.config.mjs"
 )

@@ -6,11 +6,11 @@ default:
 
 # Run project initialization script
 initialize:
-    .scripts/initialize.sh
+    scripts/initialize.sh
 
 # Run project rename script
 rename:
-    .scripts/rename.sh
+    scripts/rename.sh
 
 ## Development ---------------------------------------------------------------
 

@@ -72,10 +72,10 @@ help: ## Show this help message
 ## Initialization ------------------------------------------------------------
 
 initialize: ## Run project initialization script
-	.scripts/initialize.sh
+	scripts/initialize.sh
 
 rename: ## Run project rename script
-	.scripts/rename.sh
+	scripts/rename.sh
 
 ## Development targets -------------------------------------------------------
 

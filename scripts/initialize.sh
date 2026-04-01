@@ -5,7 +5,7 @@
 # to update all template references.
 #
 # Usage:
-#   bash .scripts/initialize.sh
+#   bash scripts/initialize.sh
 #   make initialize
 #   just initialize
 

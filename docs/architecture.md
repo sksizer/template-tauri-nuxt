@@ -8,13 +8,12 @@ This document describes the architecture, conventions, and project structure of 
 template-tauri-nuxt/
 ├── .github/              # CI/CD workflows and Dependabot config
 │   └── workflows/        # ci, build-check, release
-├── .scripts/             # Helper scripts for CI, initialization, and tooling
+├── scripts/              # Helper scripts, CI tooling, and dev utilities
 │   ├── backend-*         # Rust CI helpers (lint, format-check, test)
+│   ├── dev-port.sh       # Auto-port assignment for parallel worktrees
 │   ├── initialize.sh     # Interactive project initialization
 │   ├── rename.sh         # Non-interactive rename (env-driven)
-│   └── sync-template-check  # Template drift detection
-├── scripts/              # Dev tooling (runtime scripts)
-│   ├── dev-port.sh       # Auto-port assignment for parallel worktrees
+│   ├── sync-template-check  # Template drift detection
 │   └── tauri-wrapper.mjs # Wraps tauri CLI to inject auto-selected ports
 ├── docs/                 # Project documentation
 ├── src-nuxt/             # Frontend — Nuxt.js application

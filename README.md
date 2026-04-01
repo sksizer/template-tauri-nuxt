@@ -20,8 +20,7 @@ A starting point for desktop applications using [Tauri](https://tauri.app/), [Nu
 template_tauri_nuxt/
 ├── .github/           # CI/CD workflows and Dependabot config
 │   └── workflows/     # ci, build-check, release
-├── .scripts/          # Helper scripts for CI and tooling
-├── scripts/           # Dev tooling (auto-port, tauri wrapper)
+├── scripts/           # Helper scripts, CI tooling, and dev utilities
 ├── docs/              # Project documentation
 ├── src-nuxt/          # Frontend Nuxt.js application
 │   ├── .storybook/    # Storybook configuration
