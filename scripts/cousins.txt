@@ -2,3 +2,4 @@
 # One repo URL per line. Lines starting with # are comments.
 https://github.com/sksizer/template-tauri-astro
 https://github.com/sksizer/template-tauri-vanillajs
+https://github.com/sksizer/template-tauri-vue
