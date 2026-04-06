@@ -1,0 +1,4 @@
+# Cousin template repos that share the Tauri scaffolding layer.
+# One repo URL per line. Lines starting with # are comments.
+https://github.com/sksizer/template-tauri-astro
+https://github.com/sksizer/template-tauri-vanillajs
