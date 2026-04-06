@@ -35,9 +35,28 @@ cousin's frontend directory name and framework:
 - `.release-it.json`
 - `commitlint.config.ts`
 
-### Do NOT sync
-- Frontend source code (src-nuxt/, src-astro/, src-web/, etc.)
-- Frontend-specific config inside the frontend dir
+### Adapt features for the cousin's framework
+When the canonical template has added or changed user-facing features or example code, implement
+the equivalent in the cousin's framework using idiomatic patterns. Do NOT copy framework-specific
+code verbatim. Instead:
+
+- **Tauri commands with frontend bindings**: If a new Tauri command was added in `src-tauri/src/`
+  along with frontend code that calls it, implement the same Tauri command call using the cousin's
+  frontend framework. For example, a Vue composable becomes a React hook, an Astro component, or
+  a vanilla JS function.
+- **UI features** (clipboard, file dialogs, notifications, etc.): Implement the same capability
+  using the cousin framework's idioms — components, event handlers, and state management that are
+  natural for that framework.
+- **Frontend tooling improvements**: If a new testing pattern, component structure convention,
+  linting rule, or dev convenience was added, evaluate whether the same concept applies to the
+  cousin's ecosystem. If yes, implement it. If the cousin's framework has no equivalent (e.g. a
+  Nuxt-specific module), note it in the PR as intentionally skipped.
+- **Example/demo code**: Keep the example apps functionally equivalent across all templates so that
+  users see the same capabilities regardless of which template they chose.
+
+### Do NOT sync (verbatim)
+- Framework-specific source code (don't copy Vue files into an Astro project, etc.)
+- Framework-specific config inside the frontend dir (nuxt.config.ts, astro.config.mjs, etc.)
 - README.md, docs/
 - package.json name/version
 - src-tauri/Cargo.toml name/version/description
