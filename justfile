@@ -97,6 +97,16 @@ format-check:
 typecheck:
     pnpm run frontend:typecheck
 
+# Run all code checks (lint + format-check + typecheck)
+full-check: lint format-check typecheck
+alias fc := full-check
+
+# Auto-fix all formatting (frontend + Rust)
+full-write:
+    pnpm run format
+    cd src-tauri && cargo fmt --all
+alias fw := full-write
+
 ## Testing -------------------------------------------------------------------
 
 # Run all tests (frontend + Rust)
@@ -146,6 +156,28 @@ setup:
     pnpm run project:init
     pnpm lefthook install
 
+# Generate changelog from conventional commits
+changelog:
+    git-cliff --output CHANGELOG.md
+
+# Check template drift against upstream
+template-check:
+    pnpm run template:check
+
+# Bring repo up to date with upstream template (dry-run by default; --execute to run)
+bring-up-to-date *args:
+    bash scripts/bring_up_to_date.sh {{args}}
+alias butd := bring-up-to-date
+
+# Bring all downstream projects up to date (dry-run by default; --execute to run)
+bring-up-to-date-all *args:
+    bash scripts/bring_up_to_date_all.sh {{args}}
+alias butda := bring-up-to-date-all
+
+# Sync shared layer to cousin template repos (dry-run by default; --execute to run)
+sync-cousins *args:
+    bash scripts/sync_cousins.sh {{args}}
+
 # Remove build artifacts
 clean:
     pnpm run clean
@@ -157,7 +189,3 @@ install-deps-debian:
 # Create a new release
 release:
     pnpm run release
-
-# Check template sync status
-template-check:
-    pnpm run template:check
