@@ -1,0 +1,334 @@
+{
+  "scripts": [
+    {
+      "name": "tauri",
+      "command": "pnpm tauri",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "clean:frontend",
+      "command": "pnpm clean:frontend",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "clean:backend",
+      "command": "pnpm clean:backend",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "clean:root",
+      "command": "pnpm clean:root",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "clean",
+      "command": "pnpm clean",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "install_dependencies:debian",
+      "command": "pnpm install_dependencies:debian",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "project:init",
+      "command": "pnpm project:init",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "release",
+      "command": "pnpm release",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "prepare",
+      "command": "pnpm prepare",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "frontend:lint",
+      "command": "pnpm frontend:lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "frontend:typecheck",
+      "command": "pnpm frontend:typecheck",
+      "mode": "command",
+      "category": "typecheck"
+    },
+    {
+      "name": "frontend:test",
+      "command": "pnpm frontend:test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "backend:lint",
+      "command": "pnpm backend:lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "backend:format:check",
+      "command": "pnpm backend:format:check",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "backend:test",
+      "command": "pnpm backend:test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "template:check",
+      "command": "pnpm template:check",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "format",
+      "command": "pnpm format",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "format:check",
+      "command": "pnpm format:check",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "storybook",
+      "command": "pnpm storybook",
+      "mode": "service",
+      "category": "storybook"
+    },
+    {
+      "name": "storybook:build",
+      "command": "pnpm storybook:build",
+      "mode": "service",
+      "category": "storybook"
+    },
+    {
+      "name": "initialize",
+      "command": "make initialize",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "rename",
+      "command": "make rename",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "help",
+      "command": "make help",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "dev",
+      "command": "make dev",
+      "mode": "service",
+      "category": "dev"
+    },
+    {
+      "name": "build",
+      "command": "make build",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "build-debug",
+      "command": "make build-debug",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "make:storybook",
+      "command": "make storybook",
+      "mode": "service",
+      "category": "storybook"
+    },
+    {
+      "name": "frontend-dev",
+      "command": "make frontend-dev",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "frontend-build",
+      "command": "make frontend-build",
+      "mode": "command",
+      "category": "build"
+    },
+    {
+      "name": "frontend-generate",
+      "command": "make frontend-generate",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "frontend-preview",
+      "command": "make frontend-preview",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "lint",
+      "command": "make lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "lint-fix",
+      "command": "make lint-fix",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "make:format",
+      "command": "make format",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "format-check",
+      "command": "make format-check",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "typecheck",
+      "command": "make typecheck",
+      "mode": "command",
+      "category": "typecheck"
+    },
+    {
+      "name": "frontend-lint",
+      "command": "make frontend-lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "frontend-typecheck",
+      "command": "make frontend-typecheck",
+      "mode": "command",
+      "category": "typecheck"
+    },
+    {
+      "name": "frontend-format",
+      "command": "make frontend-format",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "frontend-format-check",
+      "command": "make frontend-format-check",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "test",
+      "command": "make test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "frontend-test",
+      "command": "make frontend-test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "rust-lint",
+      "command": "make rust-lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "rust-format",
+      "command": "make rust-format",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "rust-test",
+      "command": "make rust-test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "backend-lint",
+      "command": "make backend-lint",
+      "mode": "command",
+      "category": "lint"
+    },
+    {
+      "name": "backend-format-check",
+      "command": "make backend-format-check",
+      "mode": "command",
+      "category": "format"
+    },
+    {
+      "name": "backend-test",
+      "command": "make backend-test",
+      "mode": "command",
+      "category": "test"
+    },
+    {
+      "name": "storybook-build",
+      "command": "make storybook-build",
+      "mode": "service",
+      "category": "storybook"
+    },
+    {
+      "name": "ci",
+      "command": "make ci",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "setup",
+      "command": "make setup",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "install-deps-debian",
+      "command": "make install-deps-debian",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "make:clean",
+      "command": "make clean",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "make:release",
+      "command": "make release",
+      "mode": "command",
+      "category": "other"
+    },
+    {
+      "name": "template-check",
+      "command": "make template-check",
+      "mode": "command",
+      "category": "other"
+    }
+  ]
+}
