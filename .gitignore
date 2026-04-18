@@ -15,3 +15,6 @@ node_modules
 
 # Rust Cargo Env
 target
+
+# Private downstream repo list (merged with scripts/downstream.txt at runtime)
+scripts/downstream.local.txt
