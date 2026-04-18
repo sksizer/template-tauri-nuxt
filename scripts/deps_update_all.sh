@@ -29,7 +29,7 @@ while IFS= read -r repo_url; do
     echo "Cloning: ${repo_url} -> ${CLONE_PATH}"
     (
         git clone --quiet "$repo_url" "$CLONE_PATH"
-        bash "$PER_REPO" "${ARGS[@]}" "$CLONE_PATH"
+        bash "$PER_REPO" ${ARGS[@]+"${ARGS[@]}"} "$CLONE_PATH"
     ) &
     PIDS+=($!)
     REPOS+=("$repo_url")
