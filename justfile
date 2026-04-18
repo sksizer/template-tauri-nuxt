@@ -174,6 +174,22 @@ bring-up-to-date-all *args:
     bash scripts/bring_up_to_date_all.sh {{args}}
 alias butda := bring-up-to-date-all
 
+# Update deps within semver ranges (dry-run by default; --execute to run)
+deps-update *args:
+    bash scripts/deps_update.sh {{args}}
+
+# Update deps within semver ranges across all downstream projects
+deps-update-all *args:
+    bash scripts/deps_update_all.sh {{args}}
+
+# Upgrade deps to latest (cross-major; dry-run by default; --execute to run)
+deps-upgrade *args:
+    bash scripts/deps_upgrade.sh {{args}}
+
+# Upgrade deps to latest across all downstream projects
+deps-upgrade-all *args:
+    bash scripts/deps_upgrade_all.sh {{args}}
+
 # Sync shared layer to cousin template repos (dry-run by default; --execute to run)
 sync-cousins *args:
     bash scripts/sync_cousins.sh {{args}}
