@@ -28,7 +28,7 @@
     "@tauri-apps/plugin-opener": "^2.5.3",
     "@unhead/vue": "^2.1.13",
     "better-sqlite3": "^12.9.0",
-    "eslint": "^9.39.4",
+    "eslint": "^10.2.1",
     "nuxt": "^4.4.2",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
