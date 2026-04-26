@@ -26,7 +26,7 @@
     "storybook:build": "cd src-nuxt && pnpm run storybook:build"
   },
   "dependencies": {
-    "pnpm": "^10.33.0"
+    "pnpm": "^10.33.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
