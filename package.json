@@ -37,7 +37,7 @@
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
     "@release-it/bumper": "^7.0.5",
-    "@tauri-apps/cli": "^2.10.1",
+    "@tauri-apps/cli": "^2.11.0",
     "lefthook": "^2.1.6",
     "release-it": "^19.2.4"
   }
