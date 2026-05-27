@@ -2,6 +2,7 @@
   "name": "tauri_nuxt",
   "private": true,
   "version": "0.1.7",
+  "packageManager": "pnpm@10.33.4",
   "type": "module",
   "scripts": {
     "tauri": "node scripts/tauri-wrapper.mjs",

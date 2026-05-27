@@ -15,8 +15,6 @@ jobs:
         with:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10.24.0
       - run: pnpm run project:init
 
       - name: Lint
