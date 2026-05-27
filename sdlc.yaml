@@ -1,0 +1,18 @@
+# Per-project SDLC configuration. See plugin/conventions/sdlc-yaml.md for
+# the full shape. Edit `quality_checks:` to change which gates
+# /sdlc:task-work runs in Step 7 (or run /sdlc:find-quality-checks to
+# repopulate interactively). Add a `worktree_init:` list to declare
+# per-worktree setup verbs (e.g. `mise trust`, `just setup-worktree`
+# on a pnpm/lefthook project); leave it absent on projects with no
+# commit-msg hook to arm.
+
+quality_checks: []
+
+# Worktree initialisation verbs run by /sdlc:task-work Step 4 immediately
+# after `git worktree add`. Uncomment and edit if your project needs to
+# arm hooks / install deps in a fresh worktree before the first commit
+# (typical on pnpm + lefthook repos). Absent or empty key is a silent
+# no-op — correct for projects with no commit-msg hook.
+# worktree_init:
+#   - mise trust
+#   - just setup-worktree
