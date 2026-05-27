@@ -1,7 +1,7 @@
 ---
 type: task
 schema_version: '3'
-status: open/ready
+status: in-progress
 created: '2026-05-27'
 impact: medium
 complexity: medium
@@ -9,6 +9,8 @@ tags:
 - ci
 - github-actions
 related: []
+readiness_verified_at: '2026-05-27T03:32:06Z'
+last_reviewed: '2026-05-27'
 ---
 # Overhaul the CI workflows in one pass to avoid cross-task merge conflicts
 
