@@ -6,6 +6,12 @@
 # on a pnpm/lefthook project); leave it absent on projects with no
 # commit-msg hook to arm.
 
+# Ref authority holding the refs/sdlc/* lease namespace. A local bare repo
+# (project-root-relative, gitignored under .sdlc/) keeps leases local — the
+# right choice for a single-developer repo with no parallel orchestration.
+# Point at a git remote (e.g. `origin`) instead to share leases across hosts.
+lease_authority: .sdlc/control-plane.git
+
 quality_checks: []
 
 # Worktree initialisation verbs run by /sdlc:task-work Step 4 immediately
