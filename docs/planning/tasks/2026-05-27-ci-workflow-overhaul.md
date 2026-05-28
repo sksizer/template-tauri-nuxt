@@ -1,6 +1,6 @@
 ---
 type: task
-schema_version: '3'
+schema_version: '4'
 status: in-progress
 created: '2026-05-27'
 impact: medium
