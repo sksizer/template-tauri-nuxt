@@ -13,10 +13,12 @@ pre-commit:
     clippy:
       root: src-tauri/
       glob: '*.rs'
+      priority: 2
       run: cargo clippy -- -D warnings
     rustfmt:
       root: src-tauri/
       glob: '*.rs'
+      priority: 1
       run: cargo fmt -- --check
     oxlint:
       root: src-nuxt/
